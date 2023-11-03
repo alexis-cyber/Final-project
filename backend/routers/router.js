@@ -1,24 +1,23 @@
-const express = require ("express");
+const express = require("express");
 const router = express.Router();
-let verifyToken = require("../middleware/auth");
 
-const { 
-    findEmployees, 
-    addEmployee, 
-    updateEmployee, 
-    deleteEmployee, 
-} = require ("../controllers/employeeController");
+const {
+  getAllClothes,
+  createClothing,
+  updateClothing,
+  deleteClothing,
+} = require("../controllers/controller");
 
 //get
-router.get("/employees", findEmployees);
+router.get("/clothes", getAllClothes);
 
 //post
-router.post("/employee/create", verifyToken, addEmployee);
+router.post("/clothe/create", createClothing);
 
 //put
-router.put ("/:id", updateEmployee);
+router.put("/:id", updateClothing);
 
 //delete
-router.delete("/:id", deleteEmployee);
+router.delete("/:id", deleteClothing);
 
 module.exports = router;

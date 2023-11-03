@@ -1,58 +1,69 @@
-const express = require ("express");
-const mongoose = require ("mongoose");
-const clothe = require ("../models/model");
+const express = require("express");
+const router = express.Router();
+const Clothing = require("../models/model");
 
-//get
-const findClothe = async (req, res) => {
-    try {
-        const allclothes = await clothe.find();
-        res.status(200).send(allclothes);
-    } catch (error) {
-        console.log(error);
-        res.status(500).send({ msg: "Internal server error" });
-    }
+// GET all clothes
+const getAllClothes = async (req, res) => {
+  try {
+    const allClothes = await Clothing.find();
+    res.status(200).send(allClothes);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({ msg: "Internal server error" });
+  }
 };
 
-//post
-const addClothe = async (req,res) => {
-    try {
-        let author = req.user.id;
-        // console.log(author);
-        let clothe = req.body;
-        // console.log(clothe);
-        const createdclothe = await clothe.create(clothe);
-        res.status(200).send({ msg: "new clothe is added", createdclothe });
-    } catch (error) {
-        console.log(error); 
-        res.status(500).send({ msg: "Internal server error. We failed to create the new clothe." });
-    }
+// POST a new clothe
+const createClothing = async (req, res) => {
+  try {
+    const { name, cost, img, description } = req.body;
+    const newClothing = await Clothing.create({
+      name,
+      cost,
+      img,
+      description,
+    });
+    res.status(200).send({ msg: "New clothing is added", newClothing });
+  } catch (error) {
+    console.log(error);
+    res
+      .status(500)
+      .send({ msg: "Internal server error. Failed to create new clothing." });
+  }
 };
 
-//put
-const  updateClothe = async (req, res) => {
-    try {
-        let clientValue = req.body;
-        let id = req.params.id;
-        await clothe.updateOne ({ _id: id }, clientValue);
-        res.status(200).send ({msg: "The clothe updated successfully!"});
-    } catch (error) {
-        console.log (error);
-        res.status(500).send({ msg: "Sorry, we failed to update the clothe" });
-    }
+// PUT update a clothe
+const updateClothing = async (req, res) => {
+  try {
+    const { name, cost, img, description  } = req.body;
+    const id = req.params.id;
+    await Clothing.findByIdAndUpdate(id, { name, cost, img, description });
+    res.status(200).send({ msg: "The clothing is updated successfully!" });
+  } catch (error) {
+    console.log(error);
+    res
+      .status(500)
+      .send({ msg: "Failed to update the clothing. Internal server error." });
+  }
 };
 
-//delete
-const deleteClothe = async (req,res) => {
-    try {
-        await clothe.deleteOne({_id: req.params.id });
-        res.status(200).send ({msg: "The clothe is deleted successfully!"});
-    } catch (error) {
-        console.log (error);
-        res.status(500).send({ msg: "Failed to delete the clothe." }); 
-    }
+// DELETE a clothe
+const deleteClothing = async (req, res) => {
+  try {
+    const id = req.params.id;
+    await Clothing.findByIdAndDelete(id);
+    res.status(200).send({ msg: "The clothing is deleted successfully!" });
+  } catch (error) {
+    console.log(error);
+    res
+      .status(500)
+      .send({ msg: "Failed to delete the clothing. Internal server error." });
+  }
 };
 
-module.exports = { findClothe, addClothe, updateClothe, deleteClothe }
- 
- 
- 
+module.exports = {
+  getAllClothes,
+  createClothing,
+  updateClothing,
+  deleteClothing,
+};
