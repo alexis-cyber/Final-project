@@ -1,23 +1,11 @@
 const express = require("express");
 const router = express.Router();
+const verifyToken = require("../Middleware/auth");
+const { getAllProducts, createProduct, updateProduct, deleteProduct } = require("../Controllers/controller");
 
-const {
-  getAllClothes,
-  createClothing,
-  updateClothing,
-  deleteClothing,
-} = require("../controllers/controller");
-
-//get
-router.get("/clothes", getAllClothes);
-
-//post
-router.post("/clothe/create", createClothing);
-
-//put
-router.put("/:id", updateClothing);
-
-//delete
-router.delete("/:id", deleteClothing);
+router.get("/", getAllProducts);
+router.post("/create", verifyToken, createProduct);
+router.put("/:id", updateProduct);
+router.delete("/:id", deleteProduct);
 
 module.exports = router;

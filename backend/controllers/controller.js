@@ -1,69 +1,43 @@
-const express = require("express");
-const router = express.Router();
-const Clothing = require("../models/model");
+const Product = require("../Models/model");
 
-// GET all clothes
-const getAllClothes = async (req, res) => {
-  try {
-    const allClothes = await Clothing.find();
-    res.status(200).send(allClothes);
-  } catch (error) {
-    console.log(error);
-    res.status(500).send({ msg: "Internal server error" });
-  }
+const getAllProducts = async(req, res) => {
+    try {
+        const allProducts = await Product.find();
+        res.send(allProducts);        
+    } catch (err) {
+        res.status(500).json({msg: "Failed to retrieve products."});
+    }
 };
 
-// POST a new clothe
-const createClothing = async (req, res) => {
-  try {
-    const { name, cost, img, description } = req.body;
-    const newClothing = await Clothing.create({
-      name,
-      cost,
-      img,
-      description,
-    });
-    res.status(200).send({ msg: "New clothing is added", newClothing });
-  } catch (error) {
-    console.log(error);
-    res
-      .status(500)
-      .send({ msg: "Internal server error. Failed to create new clothing." });
-  }
+const createProduct = async (req, res) => {
+    try {
+        const newProduct = req.body;
+        const createdProduct = await Product.create(newProduct);
+        res.send(createdProduct);        
+    } catch (err) {
+        res.status(500).json({msg: "Failed to create product."});
+    }
 };
 
-// PUT update a clothe
-const updateClothing = async (req, res) => {
-  try {
-    const { name, cost, img, description  } = req.body;
-    const id = req.params.id;
-    await Clothing.findByIdAndUpdate(id, { name, cost, img, description });
-    res.status(200).send({ msg: "The clothing is updated successfully!" });
-  } catch (error) {
-    console.log(error);
-    res
-      .status(500)
-      .send({ msg: "Failed to update the clothing. Internal server error." });
-  }
+const updateProduct = async (req, res) => {
+    try {
+        const newProduct = req.body;
+        const id = req.params.id;
+        await Product.updateOne({_id: id}, newProduct);
+        res.send("Product edited");        
+    } catch (err) {
+        res.status(500).json({msg: "Failed to edit product."});
+    }
 };
 
-// DELETE a clothe
-const deleteClothing = async (req, res) => {
-  try {
-    const id = req.params.id;
-    await Clothing.findByIdAndDelete(id);
-    res.status(200).send({ msg: "The clothing is deleted successfully!" });
-  } catch (error) {
-    console.log(error);
-    res
-      .status(500)
-      .send({ msg: "Failed to delete the clothing. Internal server error." });
-  }
+const deleteProduct = async (req, res) => {
+    try {
+        const id = req.params.id;
+        await Product.deleteOne({_id: id});
+        res.send("Product deleted.");        
+    } catch (err) {
+        res.status(500).json({msg: "Failed to delete product."});
+    }
 };
 
-module.exports = {
-  getAllClothes,
-  createClothing,
-  updateClothing,
-  deleteClothing,
-};
+module.exports = { getAllProducts, createProduct, updateProduct, deleteProduct };

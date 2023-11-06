@@ -1,14 +1,11 @@
-const mongoose = require ("mongoose");
+const mongoose = require("mongoose");
 
-//schema
-const clotheSchema = new mongoose.Schema ({
-    name: String,
-    cost: Number,
-    img: String,
-    description: String
+const productSchema = new mongoose.Schema({
+  name: String,
+  cost: Date,
+  description: String,
 });
 
-//model 
-const Clothing = mongoose.model("clothe", clotheSchema);
+const Product = mongoose.model("Product", productSchema);
 
-module.exports = Clothing;
+module.exports = Product;
