@@ -9,10 +9,12 @@ app.use(express.json());
 app.use(cors());
 
 
-const employeeRoutes = require("./routers/router");
+const router = require("./routers/router");
+const userRouter = require("./Routers/userRouter")
 
 
-app.use ("/", employeeRoutes);
+app.use ("/", router);
+app.use ("/", userRouter);
 app.listen (port, () => {
     console.log (`The server is working in port ${port}`)
 });
