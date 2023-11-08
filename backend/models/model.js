@@ -15,6 +15,11 @@ const productSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  category:{
+    required: true,
+    type: String,
+    default:"clothes",
+  },
   image: {
     public_id: {
       type: String,
