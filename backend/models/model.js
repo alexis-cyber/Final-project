@@ -15,26 +15,15 @@ const productSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  category:{
-    required: true,
+  category: {
     type: String,
-    default:"clothes",
+    required: true,
+    enum: ["Clothing", "Shoes", "Accesories", "Limited Edition"],
   },
-  image: {
-    public_id: {
-      type: String,
-      required: true,
-    },
-    url: {
-      type: String,
-      required: true,
-    },
-  },
+  image: { type: String },
 });
 
 // model
 const Product = mongoose.model("Product", productSchema);
 
 module.exports = Product;
-
-

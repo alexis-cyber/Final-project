@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(cors());
 
 
-const router = require("./routers/router");
+const router = require("./Routers/router");
 const userRouter = require("./Routers/userRouter")
 
 
