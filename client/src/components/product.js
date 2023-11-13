@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 
 
 function AddProduct({ getAllProducts}) {
     let token = localStorage.getItem("token");
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const [product, setProduct] = useState({
       name: "",
       cost: "",
@@ -59,7 +59,7 @@ function AddProduct({ getAllProducts}) {
           <label>Name:</label>
           <input
             type="text"
-            name="Name"
+            name="name"
             placeholder="Name (required)"
             onChange={handleInputChange}
             value={product.name}
@@ -67,7 +67,7 @@ function AddProduct({ getAllProducts}) {
           <label>Price:</label>
           <input
             type="text"
-            name="price"
+            name="cost"
             placeholder="Price (required)"
             onChange={handleInputChange}
             value={product.cost}
@@ -75,7 +75,7 @@ function AddProduct({ getAllProducts}) {
           <label>Description:</label>
           <input
             type="text"
-            name="Description"
+            name="description"
             placeholder="Description (required)"
             onChange={handleInputChange}
             value={product.description}
@@ -83,7 +83,7 @@ function AddProduct({ getAllProducts}) {
           <label>Category:</label>
           <input
             type="input"
-            name="Category"
+            name="category"
             placeholder="Category (required)"
             onChange={handleInputChange}
             value={product.category}

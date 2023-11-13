@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const cloudinary = require("../cloudinary");
+
 
 // schema
 const productSchema = new mongoose.Schema({

@@ -11,7 +11,9 @@ function Navbar() {
   try {
   // Check if a token exists in local storage
   token = localStorage.getItem('token');
-  decoded = jwtDecode(token);
+  if (token){
+    decoded = jwtDecode(token);
+  }
   } catch (err) {
     console.log(err);
   }

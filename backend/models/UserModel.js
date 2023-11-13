@@ -1,10 +1,10 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const UserSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
-    unique:true,
+    unique: true,
   },
   password: {
     type: String,
@@ -13,8 +13,8 @@ const UserSchema = new mongoose.Schema({
 });
 
 const adminSchema = new mongoose.Schema({
-  email:{
-    type:String,
+  email: {
+    type: String,
     required: true,
     unique: true,
     default: "alex@gmail.com",
@@ -24,17 +24,14 @@ const adminSchema = new mongoose.Schema({
     required: true,
     default: "123",
   },
-})
+});
 
-
-const User = mongoose.model('User', UserSchema);
-const adminUser = mongoose.model('adminUser', adminSchema);
+const User = mongoose.model("User", UserSchema);
+const adminUser = mongoose.model("adminUser", adminSchema);
 
 // let admin = new adminUser()
 // admin.save()
 
-
-
-module.exports = {User, adminUser};
+module.exports = { User, adminUser };
 
 //products array

@@ -20,7 +20,7 @@ import Home from "./components/Home";
 import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from "./components/navBar";
-import ProductListByCategory from "./components/ProductListByCategory";
+import ProductList from "./components/ProductList";
 import AddProduct from "./components/product";
 
 
@@ -50,7 +50,7 @@ function App() {
         <Route path="/create" element={<AddProduct />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/category/:category" element={<ProductListByCategory/>} />
+        <Route path="/category/:category" element={<ProductList/>} />
       </Routes>
     </BrowserRouter>
     </div>
