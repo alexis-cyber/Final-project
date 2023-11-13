@@ -3,6 +3,7 @@ import {jwtDecode} from 'jwt-decode';
 
 
 function Navbar() {
+  const ADMIN = "alex@gmail.com";
   const navigate = useNavigate();
   let token;
   let decoded;
@@ -43,7 +44,11 @@ function Navbar() {
           
             <Link className="link">{decoded.email}</Link>
             <Link to="/" className="link">Home</Link>
-            <Link to="/form" className="link">Create</Link>
+            {token && decoded.email === ADMIN && (
+              <Link className="links" to="/create">
+                Post Item
+              </Link>
+            )}
             <Link onClick={handleLogout} className="link">Log Out</Link>
           </div>
         </nav> 

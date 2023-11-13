@@ -1,125 +1,100 @@
-import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
+import axios from "axios";
 
 
-function Product({ getAllProducts, products }) {
-  const [newProduct, setNewProduct] = useState({
-    name: "",
-    expirationDate: "",
-    category: ""
-  });
+function AddProduct({ getAllProducts}) {
+    let token = localStorage.getItem("token");
+    const navigate = useNavigate();
+    const [product, setProduct] = useState({
+      name: "",
+      cost: "",
+      description: "",
+      category: "",
+    });
 
-  const [editProduct, setEditProduct] = useState({
-    id: null,
-    name: "",
-    expirationDate: "",
-    category: ""
-  });
-
-  async function deleteProduct(id) {
-    try {
-      await axios.delete(`http://localhost:8000/products/${id}`);
-    } catch (error) {
-      console.log("Error deleting product:", error);
-    }
-    getAllProducts();
-  }
-
-  async function addProduct() {
-    try {
-      await axios.post("http://localhost:8000/products", newProduct);
-      setNewProduct({
-        name: "",
-        expirationDate: "",
-        category: ""
+    const handleInputChange = (e) => {
+      const value = e.target.value;
+      setProduct({
+        ...product,
+        [e.target.name]: value,
       });
-      getAllProducts();
-    } catch (error) {
-      console.error("Error adding product:", error);
-    }
-  }
+    };
+    
 
-  async function updateProduct() {
-    try {
-      await axios.put(`http://localhost:8000/products/${editProduct.id}`, {
-        name: editProduct.name,
-        cost: editProduct.cost,
-        description: editProduct.description
-      });
-      setEditProduct({
-        id: null,
-        name: "",
-        cost: "",
-        description: ""
-      });
-      getAllProducts();
-    } catch (error) {
-      console.error("Error updating product:", error);
-    }
-  }
-
-  return (
-    <div>
-      {/* Render Existing Products */}
-      {products.map((product) => (
-        <div key={product._id} className="productCard">
-          <div className="product">
-            <span>{product.name}</span>
-            <span>{product.cost}</span>
-            <span>{product.description}</span>
-            <div className="buttonsContainer">
-            <button onClick={() => deleteProduct(product._id)} className="deleteButton">
-              <i className="material-icons">Delete</i>
-            </button>
-            <button
-              onClick={() => {
-                setEditProduct({
-                  id: product._id,
-                  name: product.name,
-                  cost: product.cost,
-                  description: product.description
-                });
-              }} className="editButton"
-            >
-              <i className="material-icons">Edit</i>
-            </button>
-            </div>
-          </div>
-
-          {/* Render the text as editable input if currently being edited */}
-          {editProduct.id === product._id && (
-            <div className="editForm">
-              <input
-                type="text"
-                value={editProduct.name}
-                onChange={(e) =>
-                  setEditProduct({ ...editProduct, name: e.target.value })
-                }
-              />
-              <input
-                type="text"
-                value={editProduct.cost}
-                onChange={(e) =>
-                  setEditProduct({
-                    ...editProduct,
-                    cost: e.target.value
-                  })
-                }
-              />
-              <input
-                type="text"
-                value={editProduct.description}
-                onChange={(e) =>
-                  setEditProduct({ ...editProduct, description: e.target.value })
-                }
-              />
-              <button onClick={updateProduct}>Save</button>
-            </div>
-          )}
-        </div>
-      ))}
+    
+    const validForm = () => {
+      return (
+        product.name.trim() !== "" &&
+        product.cost.trim() !== "" &&
+        product.description.trim() !== ""
+      );
+    };
+  
+    function addNewProduct(e) {
+      e.preventDefault();
+      if (!validForm()) {
+        alert("Please fill in all fields.");
+        return;
+      }
+  
+      axios
+        .post("http://localhost:8000/create", product, {
+          headers: { Authorization: `Bearer ${token}` },
+        })
+        .then((res) => {
+          console.log(res.data);
+          getAllProducts();
+        //   navigate("/");
+        })
+  
+        .catch((err) => {
+          console.log(err);
+        });
+    };
+    return (
+      <div>
+      <div className="inputDiv">
+        <form className="form1" onSubmit={addNewProduct}>
+          <label>Name:</label>
+          <input
+            type="text"
+            name="Name"
+            placeholder="Name (required)"
+            onChange={handleInputChange}
+            value={product.name}
+          /><br></br>
+          <label>Price:</label>
+          <input
+            type="text"
+            name="price"
+            placeholder="Price (required)"
+            onChange={handleInputChange}
+            value={product.cost}
+          /><br></br>
+          <label>Description:</label>
+          <input
+            type="text"
+            name="Description"
+            placeholder="Description (required)"
+            onChange={handleInputChange}
+            value={product.description}
+          /><br></br>
+          <label>Category:</label>
+          <input
+            type="input"
+            name="Category"
+            placeholder="Category (required)"
+            onChange={handleInputChange}
+            value={product.category}
+          /><br></br>
+          <button type="submit" className="addProductBtn">
+            ADD
+          </button>
+        </form>
+      </div>
     </div>
-  );
+);
+      
 }
-
-export default Product;
+export default AddProduct;

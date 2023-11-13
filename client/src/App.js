@@ -12,16 +12,17 @@
 
 // export default App;
 
-import Form from "./components/Form";
-import Login from "./components/LoginForm";
-import Register from "./components/SignUpForm";
-import { useEffect, useState } from "react";
-import React from "react"
-import Home from "./components/Home";
+import Login from "./components/loginForm";
+import Register from "./components/signUpForm";
+import React from "react";
 import axios from "axios";
+import Home from "./components/Home";
+import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import NavBar from "./components/NavBar";
-import ProductList from "./components/ProductList";
+import NavBar from "./components/navBar";
+import ProductListByCategory from "./components/ProductListByCategory";
+import AddProduct from "./components/product";
+
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -38,30 +39,23 @@ function App() {
   }
 
   useEffect(() => {
-    getAllProducts();
-  }, []);
+  }, [getAllProducts]);
 
   return (
+    <div>
     <BrowserRouter>
-      <NavBar/> 
+      <NavBar />
       <Routes>
-        
-        <Route
-          path="/form"
-          element={<Form getAllProducts={getAllProducts} />}
-        />
-        <Route
-          path="/"
-          element={
-            <ProductList products={products} getAllProducts={getAllProducts} />
-          }
-        />
-        <Route path="/login" element={<Login login={Login} />} />
-        <Route path="/register" element={<Register register={Register} />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/create" element={<AddProduct />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/category/:category" element={<ProductListByCategory/>} />
       </Routes>
-      <Home />
     </BrowserRouter>
+    </div>
   );
 }
 
 export default App;
+

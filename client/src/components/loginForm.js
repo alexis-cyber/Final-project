@@ -1,6 +1,5 @@
 import { useState } from "react";
 import axios from "axios";
-import jwt_decode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 
 
@@ -14,7 +13,7 @@ function Login() {
     async function handleLogin(e) {
         try {
             e.preventDefault();
-            let res = await axios.post("http://localhost:8000/products/login", { email, password });
+            let res = await axios.post("http://localhost:8000/login", { email, password });
             console.log(res.data);
             if (res.status === 200) {
                 localStorage.setItem("token", res.data.token);

@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 
+
 function Register() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -10,7 +11,7 @@ function Register() {
 
     async function handleRegister(e) {
         e.preventDefault();
-        let res = await axios.post("http://localhost:8000/products/register", {email, password});
+        let res = await axios.post("http://localhost:8000/register", {email, password});
         alert(res.data.msg);
         navigate("/login");
     } 

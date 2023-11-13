@@ -14,13 +14,22 @@ const getAllProducts = async (req, res) => {
 
 const createProduct = async (req, res) => {
   try {
-    const { name, cost, description, category, image } = req.body;
+    if (
+      !req.user ||
+      !req.user.email ||
+      req.user.email !== process.env.REAL_ADMIN
+    ) {
+      return res
+        .status(403)
+        .send({ msg: "Unauthorized. Only admin can create products." });
+    }
+    const { name, cost, description, category} = req.body;
     const product = {
       name,
       cost,
       description,
       category,
-      image,
+      // image,
     };
 
     let createdProduct = await Product.create(product);
@@ -62,6 +71,16 @@ const getCategories = async (req, res) => {
   }
 };
 
+const getProductsByCategory = async (req, res) => {
+  try {
+    const { category } = req.params;
+    const products = await Product.find({ category });
+    res.status(200).send(products);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({ msg: "internal server error" });
+  }
+};
 
 module.exports = {
   getAllProducts,
@@ -69,4 +88,5 @@ module.exports = {
   updateProduct,
   deleteProduct,
   getCategories,
+  getProductsByCategory,
 };
