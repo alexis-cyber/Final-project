@@ -70,7 +70,7 @@ const getCategories = async (req, res) => {
   }
 };
 
-const getProductsByCategory = async (req, res) => {
+const ProductList= async (req, res) => {
   try {
     const { category } = req.params;
     const products = await Product.find({ category });
@@ -81,11 +81,25 @@ const getProductsByCategory = async (req, res) => {
   }
 };
 
+const getProductById = async (req, res) => {
+  try {
+    const product = await Product.findById(req.params.id);
+
+    if (!product) {
+      return res.status(404).send({ msg: "Product not found" });
+    }
+    res.status(200).send(product);
+  } catch (err) {
+    res.status(400).send({ msg: err.message });
+  }
+};
+
 module.exports = {
   getAllProducts,
   createProduct,
   updateProduct,
   deleteProduct,
   getCategories,
-  getProductsByCategory,
+  ProductList,
+  getProductById,
 };

@@ -22,6 +22,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from "./components/navBar";
 import ProductList from "./components/ProductList";
 import AddProduct from "./components/product";
+import ShoppingCart from "./components/cart"
+import ProductDetails from "./components/ProductDetails"
 
 
 function App() {
@@ -49,7 +51,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/create" element={<AddProduct />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/cart" element={<ShoppingCart />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/product/:id" element={< ProductDetails />} />
         <Route path="/category/:category" element={<ProductList/>} />
       </Routes>
     </BrowserRouter>

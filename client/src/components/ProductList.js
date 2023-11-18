@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
-import {jwtDecode} from "jwt-decode";
+import { useParams, Link } from "react-router-dom";
+import { jwtDecode } from "jwt-decode";
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
@@ -37,7 +37,7 @@ const ProductList = () => {
         setProducts(response.data);
       } catch (error) {
         console.error("Error fetching products:", error);
-      } 
+      }
     };
 
     fetchData();
@@ -75,9 +75,12 @@ const ProductList = () => {
       <div>
         {products.map((product) => (
           <div className="productDiv" key={product._id}>
-            <p>{product.name}</p>
-            <p>{product.description}</p>
-            <p>{product.cost}</p>
+            <Link to={`/product/${product._id}`}>
+              <p>{product.name}</p>
+              <p>{product.description}</p>
+              <p>{product.cost}</p>
+            </Link>
+            
             {token && decoded.email === ADMIN && (
               <div>
                 <div className="buttonsContainer">
@@ -101,7 +104,7 @@ const ProductList = () => {
                     <i className="material-icons">Edit</i>
                   </button>
                 </div>
-{editProduct.id === product._id && (
+                {editProduct.id === product._id && (
                   <div className="editForm">
                     <input
                       type="text"
