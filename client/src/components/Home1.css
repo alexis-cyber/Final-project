@@ -1,0 +1,28 @@
+ .categoryDiv {
+  background-color: #ffffff;
+}
+
+.categoriesContainerItem {
+  margin: 20px;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.categoriesContainerItem:hover {
+  transform: scale(1.05);
+}
+
+.categoriesContainerItem img {
+ 
+  object-fit: cover;
+ 
+}
+
+.categoryText {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+} 

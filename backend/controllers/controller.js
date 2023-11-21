@@ -22,13 +22,13 @@ const createProduct = async (req, res) => {
         .status(403)
         .send({ msg: "Unauthorized. Only admin can create products." });
     }
-    const { name, cost, description, category} = req.body;
+    const { name, cost, description, category, image} = req.body;
     const product = {
       name,
       cost,
       description,
       category,
-      // image,
+      image,
     };
 
     let createdProduct = await Product.create(product);

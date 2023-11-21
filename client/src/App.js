@@ -24,6 +24,7 @@ import ProductList from "./components/ProductList";
 import AddProduct from "./components/product";
 import ShoppingCart from "./components/cart"
 import ProductDetails from "./components/ProductDetails"
+// import Sidebar from './components/sidebar';
 
 
 function App() {

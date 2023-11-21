@@ -1,10 +1,13 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link} from "react-router-dom";
 import {jwtDecode} from 'jwt-decode';
+import logo from './alex2.png';
+
+import "./Home.css"
 
 
 function Navbar() {
   const ADMIN = "alex@gmail.com";
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   let token;
   let decoded;
   
@@ -21,7 +24,7 @@ function Navbar() {
     function handleLogout() {
       if (token) {
         localStorage.removeItem("token");
-        navigate("/login");
+        // navigate("/login");
         window.location.reload()
       } else {
         return;
@@ -29,29 +32,33 @@ function Navbar() {
     }
 
   return (
-    <>    
-    <h1 className="title">Alex`s 衣類</h1>   
+    <>      
     {!token ? ( 
       <nav className="navbar">
+         <Link to="/" className="link"><img src={logo} alt="Logo" className="logos"/></Link>
         <div className="linkGroup">
-          
-          <Link to="/" className="link">Home</Link>
+        {/* <img src={logo} alt="Logo" className="logos"/>  */}
+          {/* <Link to="/" className="link"><img src={logo} alt="Logo" className="logos"/></Link> */}
+          <Link to="/cart" className="link">Cart</Link>
           <Link to="/login" className="link">Log In</Link>
           <Link to="/register" className="link">Register</Link>
         </div>
       </nav>
      ) : (
         <nav className="navbar">
-          <div className="linkGroup">
           
+          <div className="linkGroup">
+          <Link to="/" className="link"><img src={logo} alt="Logo" className="logos"/></Link>
             <Link className="link">{decoded.email}</Link>
-            <Link to="/" className="link">Home</Link>
+            <Link to="/cart" className="link">Cart</Link>
             {token && decoded.email === ADMIN && (
               <Link className="links" to="/create">
                 Post Item
               </Link>
             )}
             <Link onClick={handleLogout} className="link">Log Out</Link>
+            
+            
           </div>
         </nav> 
       )}

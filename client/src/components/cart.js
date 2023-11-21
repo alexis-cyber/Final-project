@@ -11,23 +11,31 @@ const Cart = () => {
     if (token) {
       decoded = jwtDecode(token);
     }
-    // console.log("Token:", token);
-    // console.log("Decoded:", decoded);
   } catch (error) {
     console.log("Invalid token", error);
   }
+
   const [cartItems, setCartItems] = useState(
     JSON.parse(localStorage.getItem(`cartItems_${decoded?.id}`)) || []
   );
 
   const clearCart = () => {
-    
     setCartItems([]);
     localStorage.removeItem(`cartItems_${decoded?.id}`);
   };
+
+  const removeItem = (itemId) => {
+    const updatedCart = cartItems.filter((item) => item.id !== itemId);
+    setCartItems(updatedCart);
+    localStorage.setItem(`cartItems_${decoded?.id}`, JSON.stringify(updatedCart));
+  };
+
+  const getTotalCost = () => {
+    return cartItems.reduce((total, item) => total + item.cost, 0);
+  };
+
   return (
     <div>
-      <h1>Cart</h1>
       {cartItems.length === 0 ? (
         <p>Your cart is empty.</p>
       ) : (
@@ -37,8 +45,10 @@ const Cart = () => {
               <p>{item.name}</p>
               <p>{item.description}</p>
               <p>{item.cost}</p>
+              <button onClick={() => removeItem(item.id)}>Remove</button>
             </div>
           ))}
+          <p>Total Items: {cartItems.length}</p>
           <button onClick={clearCart}>Clear Cart</button>
 
           {/* GooglePay component */}
@@ -48,4 +58,5 @@ const Cart = () => {
     </div>
   );
 };
+
 export default Cart;

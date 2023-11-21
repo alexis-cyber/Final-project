@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-
+import { useNavigate, Link } from "react-router-dom";
+import "./sign-log.css";
 
 
 function Register() {
@@ -25,6 +25,7 @@ function Register() {
             <label>Password</label><br/>
             <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}/><br/>
             <input type="submit" value="Sign Up"/>
+            <Link to="/login" className="logg" ><p>Already signed up?</p></Link>
         </form>
     </div>
     )

@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 
-
 // schema
 const productSchema = new mongoose.Schema({
   name: {
@@ -20,7 +19,9 @@ const productSchema = new mongoose.Schema({
     required: true,
     enum: ["Clothing", "Shoes", "Accesories", "Limited Edition"],
   },
-  // image: { type: String },
+  image: {
+    type: String,
+  },
 });
 
 // model

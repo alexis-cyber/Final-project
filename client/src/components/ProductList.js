@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, Link } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
+import "./list.css"
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
@@ -10,6 +11,7 @@ const ProductList = () => {
     name: "",
     cost: "",
     description: "",
+    image: "",
   });
   const { category } = useParams();
 
@@ -70,15 +72,13 @@ const ProductList = () => {
   };
   return (
     <div>
-      <h1>Products in {category}</h1>
-
-      <div>
+    <div classname="productListCat">
         {products.map((product) => (
           <div className="productDiv" key={product._id}>
             <Link to={`/product/${product._id}`}>
               <p>{product.name}</p>
-              <p>{product.description}</p>
               <p>{product.cost}</p>
+              <img src={product.image} alt={product.name} />
             </Link>
             
             {token && decoded.email === ADMIN && (
@@ -97,6 +97,7 @@ const ProductList = () => {
                         name: product.name,
                         description: product.description,
                         cost: product.cost,
+                        image: product.image,
                       });
                     }}
                     className="editButton"
@@ -144,7 +145,7 @@ const ProductList = () => {
           </div>
         ))}
       </div>
-    </div>
+      </div>
   );
 };
 export default ProductList;
