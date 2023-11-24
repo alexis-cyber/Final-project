@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 import "./details.css"
+import Footer from "./footer"
 
 const ProductDetails = () => {
   const [product, setProduct] = useState({});
@@ -61,12 +62,21 @@ const ProductDetails = () => {
       <button className="addToCartButton" onClick={addToCart}>
         Add to Cart
       </button>
-
-      {/* <Link to="/cart">
-        <button className="goToCartButton">Go to Cart</button>
-      </Link> */}
+      <div className="upFooter">
+                <h1>GENUINE PRODUCTS</h1>
+                <p>All our products are 100% authentic!</p>
+                <h1>SECURE TRANSACTIONS</h1>
+                <p>We provide you with absolute security for your transactions.</p>
+                <h1>FAST DELIVERIES</h1>
+                <p>Your products are shipped with the most trusted companies.</p>
+                <h1>MONEY REFUND</h1>
+                <p>Money back guarantee on your purchases.</p>
+                </div>
+      <Footer/>
     </div>
+    
   );
+  
 };
 
 export default ProductDetails;

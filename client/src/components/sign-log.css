@@ -6,45 +6,51 @@
 }
 
 .form {
-  width: 280px;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 300px; /* Adjusted width for a better fit */
+  padding: 30px; /* Increased padding for better spacing */
+  border: 1px solid #333; /* Darkened border color for better contrast */
+  border-radius: 10px; /* Increased border-radius for a modern look */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Adjusted box-shadow for better visibility */
 }
 
 h2 {
   text-align: center;
-  color: #333;
+  color: #000000; /* Set text color to white for better contrast */
+  margin-bottom: 20px; /* Increased margin for better spacing */
 }
 
 label {
   display: block;
-  margin-bottom: 5px;
-  color: #555;
+  margin-bottom: 8px; /* Adjusted margin for better spacing */
+  color: #ccc; /* Adjusted color for better visibility */
 }
 
 input {
   width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 10px; /* Adjusted padding for better input size */
+  margin-bottom: 15px; /* Increased margin for better spacing */
+  border: 1px solid #555; /* Darkened border color for better visibility */
+  border-radius: 6px; /* Adjusted border-radius for a modern look */
   box-sizing: border-box;
 }
 
 input[type="submit"] {
-  background-color: #4caf50;
+  background-color: #f80000; /* Streetwear red color */
   color: white;
   cursor: pointer;
   margin-top: 20px;
+  border: none;
+  border-radius: 8px; /* Increased border-radius for a modern look */
+  padding: 12px; /* Adjusted padding for better button size */
+  transition: background-color 0.3s ease; /* Added transition for a smooth color change */
 }
 
 input[type="submit"]:hover {
-  background-color: #45a049;
+  background-color: #e60000; /* Darkened color on hover for a subtle effect */
 }
 
 .logg {
   text-decoration: none;
-  color: red;
+  color: #f80000; /* Streetwear red color */
+  font-weight: bold;
 }

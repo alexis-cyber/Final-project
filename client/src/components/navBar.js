@@ -1,7 +1,6 @@
 import { Link} from "react-router-dom";
 import {jwtDecode} from 'jwt-decode';
-import logo from './alex2.png';
-
+import logo from './logoo.png';
 import "./Home.css"
 
 
@@ -35,7 +34,7 @@ function Navbar() {
     <>      
     {!token ? ( 
       <nav className="navbar">
-         <Link to="/" className="link"><img src={logo} alt="Logo" className="logos"/></Link>
+         <Link to="/" className="imagess"><img src={logo} alt="Logo" className="logos"/></Link>
         <div className="linkGroup">
         {/* <img src={logo} alt="Logo" className="logos"/>  */}
           {/* <Link to="/" className="link"><img src={logo} alt="Logo" className="logos"/></Link> */}
@@ -48,7 +47,7 @@ function Navbar() {
         <nav className="navbar">
           
           <div className="linkGroup">
-          <Link to="/" className="link"><img src={logo} alt="Logo" className="logos"/></Link>
+          <Link to="/" className="imagess"><img src={logo} alt="Logo" className="logos"/></Link>
             <Link className="link">{decoded.email}</Link>
             <Link to="/cart" className="link">Cart</Link>
             {token && decoded.email === ADMIN && (

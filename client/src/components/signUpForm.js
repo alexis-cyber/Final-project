@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import "./sign-log.css";
-
+import Footer from "./footer"
 
 function Register() {
     const [email, setEmail] = useState("");
@@ -27,6 +27,7 @@ function Register() {
             <input type="submit" value="Sign Up"/>
             <Link to="/login" className="logg" ><p>Already signed up?</p></Link>
         </form>
+       
     </div>
     )
 };

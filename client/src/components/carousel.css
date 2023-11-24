@@ -1,0 +1,17 @@
+.slick-slide {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    height: 100% !important;
+    
+  }
+  
+  .slick-list {
+    height: 100% !important;
+    
+  }
+.slick-slide img {
+    max-width: 100%; 
+    max-height: 60vh; 
+    box-shadow: 0 4px 6px rgb(0, 0, 0);
+  }

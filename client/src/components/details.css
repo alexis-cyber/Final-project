@@ -1,40 +1,36 @@
 .productDetailsContainer {
-    max-width: 600px;
-    margin: auto;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .productDetails {
-    margin-bottom: 20px;
-  }
-  
-  .productDetails img {
-    max-width: 100%;
-    height: auto;
-    margin-top: 20px;
-  }
-  
-  .addToCartButton {
-    background-color: #4caf50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-right: 10px;
-  }
-  
-  .goToCartButton {
-    background-color: #2196f3;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .addToCartButton:hover,
-  .goToCartButton:hover {
-    opacity: 0.8;
-  }
+  padding: 30px;
+  text-align: center;
+  background: #333; /* Darker background for a sophisticated look */
+  color: #fff; /* White text for contrast */
+}
+
+.productDetails img {
+  max-width: 25%;
+  height: auto;
+  margin-top: 20px;
+  border-radius: 12px; /* Increased border-radius for a smoother appearance */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); /* Slightly increased shadow for depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added box-shadow transition for a smoother effect */
+}
+
+.productDetails img:hover {
+  transform: scale(1.1); /* Slightly larger scale on hover */
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4); /* Increased shadow on hover */
+}
+
+.addToCartButton {
+  background-color: #ff4d4d; /* A lighter red for the button */
+  color: #fff;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 25px; /* Rounded corners for a softer look */
+  cursor: pointer;
+  margin-top: 20px;
+  transition: opacity 0.3s ease, background-color 0.3s ease; /* Added background-color transition */
+}
+
+.addToCartButton:hover {
+  opacity: 0.9; /* Slightly increased opacity on hover */
+  background-color: #e60000; /* Darker red on hover for contrast */
+}

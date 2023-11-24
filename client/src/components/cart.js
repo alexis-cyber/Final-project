@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { jwtDecode } from "jwt-decode";
 import GooglePay from "./Payment";
+import "./cart.css"
 
 const Cart = () => {
   let token;
@@ -31,27 +32,33 @@ const Cart = () => {
   };
 
   const getTotalCost = () => {
-    return cartItems.reduce((total, item) => total + item.cost, 0);
+    return cartItems.reduce((total, item) => parseInt(total) + parseInt(item.cost), 0);
   };
 
   return (
-    <div>
+    <div className="cart-container">
       {cartItems.length === 0 ? (
         <p>Your cart is empty.</p>
       ) : (
         <div>
           {cartItems.map((item) => (
-            <div key={item.id}>
+            <div className="cart-item" key={item.id}>
               <p>{item.name}</p>
               <p>{item.description}</p>
-              <p>{item.cost}</p>
-              <button onClick={() => removeItem(item.id)}>Remove</button>
+              <p>${item.cost}</p>
+              <button className="remove-button" onClick={() => removeItem(item.id)}>
+                Remove
+              </button>
             </div>
           ))}
-          <p>Total Items: {cartItems.length}</p>
-          <button onClick={clearCart}>Clear Cart</button>
+          <div className="total-section">
+            <p>Total Items: {cartItems.length}</p>
+            <p>Total Cost: ${getTotalCost()}</p>
+            <button className="clear-button" onClick={clearCart}>
+              Clear Cart
+            </button>
+          </div>
 
-          {/* GooglePay component */}
           <GooglePay />
         </div>
       )}

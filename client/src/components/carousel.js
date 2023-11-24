@@ -2,42 +2,36 @@ import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import category1 from "./Streetwear-2.png";
-import category2 from "./shoes.png";
-import category3 from "./accesories.jpg";
-import category4 from "./limited.jpg";
 import "./carousel.css";
+
+import category1 from "./jordan.jpg";
+import category2 from "./limited2.png";
+import category3 from "./Streetwear-2.png";
+import category4 from "./tom.jpg";
 
 const Carousel = () => {
   const settings = {
-    dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
+    slidesToShow: 2,
+    slidesToScroll: 2,
+    autoplay: true,
+    autoplaySpeed: 2500, 
+    fade: true,
   };
 
-//   const imageStyle = {
-//     width: "100%",
-//     height: "100%",
-//     objectFit: "cover",
-//   };
+  const categories = [category1, category2, category3, category4];
 
   return (
-    <Slider {...settings}>
-      <div id="carouselDiv">
-        <img src={category1} alt="Category 1" />
-      </div>
-      <div>
-        <img src={category2} alt="Category 2"  />
-      </div>
-      <div>
-        <img src={category3} alt="Category 3"  />
-      </div>
-      <div>
-        <img src={category4} alt="Category 4"  />
-      </div>
-    </Slider>
+    <div className="carousel-container">
+      <Slider {...settings}>
+        {categories.map((category, index) => (
+          <div className="center-slide" key={index}>
+            <img src={category} alt={`Category ${index + 1}`} />
+          </div>
+        ))}
+      </Slider>
+    </div>
   );
 };
 

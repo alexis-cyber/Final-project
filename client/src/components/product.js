@@ -142,7 +142,7 @@ function AddProduct({ getAllProducts }) {
           <br></br>
           <button onClick={uploadImage}>Upload</button>
           {imageList.map((url) => (
-            <img key={url} src={url} alt="Product" />
+            <img key={url} src={url} alt="Product" id="imagess"/>
           ))}
           <button type="submit" className="addProductBtn">
             ADD

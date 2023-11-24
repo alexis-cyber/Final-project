@@ -1,0 +1,33 @@
+/* footer.css */
+
+.footer {
+  padding-top: 20px; /* Increased top padding for better spacing */
+  padding-bottom: 50px; /* Reduced bottom padding for a more balanced look */
+  border-width: 0;
+  border-top-width: 2px; /* Increased border-top-width for better visibility */
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.5); /* Adjusted border color for better contrast */
+  background-color: #333; /* Dark background color */
+  margin-top: 50px; /* Adjusted margin for better spacing */
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+  color: #fff; /* Set text color to white for better contrast */
+}
+
+.footer p {
+  margin: 15px 0; /* Adjusted margin for better spacing */
+}
+
+.footer a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease; /* Added transition for a smooth color change */
+}
+
+.footer a:hover {
+  text-decoration: underline;
+  color: #f80000; /* Changed hover color for a bold contrast */
+}

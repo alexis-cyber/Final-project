@@ -3,6 +3,7 @@ import axios from "axios";
 import { useParams, Link } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 import "./list.css"
+import Footer from "./footer";
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
@@ -76,9 +77,9 @@ const ProductList = () => {
         {products.map((product) => (
           <div className="productDiv" key={product._id}>
             <Link to={`/product/${product._id}`}>
+            <img src={product.image} alt={product.name} />
               <p>{product.name}</p>
               <p>{product.cost}</p>
-              <img src={product.image} alt={product.name} />
             </Link>
             
             {token && decoded.email === ADMIN && (
@@ -145,6 +146,17 @@ const ProductList = () => {
           </div>
         ))}
       </div>
+      <div className="upFooter">
+                <h1>GENUINE PRODUCTS</h1>
+                <p>All our products are 100% authentic!</p>
+                <h1>SECURE TRANSACTIONS</h1>
+                <p>We provide you with absolute security for your transactions.</p>
+                <h1>FAST DELIVERIES</h1>
+                <p>Your products are shipped with the most trusted companies.</p>
+                <h1>MONEY REFUND</h1>
+                <p>Money back guarantee on your purchases.</p>
+                </div>
+      <Footer/>
       </div>
   );
 };
