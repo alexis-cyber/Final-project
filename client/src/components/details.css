@@ -1,8 +1,8 @@
 .productDetailsContainer {
   padding: 30px;
   text-align: center;
-  background: #333; /* Darker background for a sophisticated look */
-  color: #fff; /* White text for contrast */
+  background: #ffffff; /* Darker background for a sophisticated look */
+  color: #000000; /* White text for contrast */
 }
 
 .productDetails img {

@@ -6,51 +6,51 @@
 }
 
 .form {
-  width: 300px; /* Adjusted width for a better fit */
-  padding: 30px; /* Increased padding for better spacing */
-  border: 1px solid #333; /* Darkened border color for better contrast */
-  border-radius: 10px; /* Increased border-radius for a modern look */
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Adjusted box-shadow for better visibility */
+  width: 300px;
+  padding: 30px;
+  border: 1px solid #333;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
 h2 {
   text-align: center;
-  color: #000000; /* Set text color to white for better contrast */
-  margin-bottom: 20px; /* Increased margin for better spacing */
+  color: #000000;
+  margin-bottom: 20px;
 }
 
 label {
   display: block;
-  margin-bottom: 8px; /* Adjusted margin for better spacing */
-  color: #ccc; /* Adjusted color for better visibility */
+  margin-bottom: 8px;
+  color: #ccc;
 }
 
 input {
   width: 100%;
-  padding: 10px; /* Adjusted padding for better input size */
-  margin-bottom: 15px; /* Increased margin for better spacing */
-  border: 1px solid #555; /* Darkened border color for better visibility */
-  border-radius: 6px; /* Adjusted border-radius for a modern look */
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #555;
+  border-radius: 6px;
   box-sizing: border-box;
 }
 
 input[type="submit"] {
-  background-color: #f80000; /* Streetwear red color */
+  background-color: #f80000;
   color: white;
   cursor: pointer;
   margin-top: 20px;
   border: none;
-  border-radius: 8px; /* Increased border-radius for a modern look */
-  padding: 12px; /* Adjusted padding for better button size */
-  transition: background-color 0.3s ease; /* Added transition for a smooth color change */
+  border-radius: 8px;
+  padding: 12px;
+  transition: background-color 0.3s ease;
 }
 
 input[type="submit"]:hover {
-  background-color: #e60000; /* Darkened color on hover for a subtle effect */
+  background-color: #e60000;
 }
 
 .logg {
   text-decoration: none;
-  color: #f80000; /* Streetwear red color */
+  color: #f80000;
   font-weight: bold;
 }

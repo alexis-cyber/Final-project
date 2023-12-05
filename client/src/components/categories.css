@@ -2,10 +2,10 @@
   max-width: 500px;
   margin: auto;
   padding: 20px;
-  border: 1px solid #333; /* Darkened border color for better contrast */
-  border-radius: 12px; /* Increased border-radius for a modern look */
-  background-color: #fff; /* Set background color to white */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added subtle box-shadow */
+  border: 1px solid #333; 
+  border-radius: 12px; 
+  background-color: #fff; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .form1 {
@@ -15,36 +15,36 @@
 
 label {
   font-weight: bold;
-  margin-bottom: 8px; /* Adjusted margin for better spacing */
-  color: #333; /* Set label color to a dark tone */
+  margin-bottom: 8px; 
+  color: #333; 
 }
 
 input {
-  margin-bottom: 15px; /* Increased margin for better spacing */
-  padding: 12px; /* Adjusted padding for better input size */
-  border: 1px solid #555; /* Darkened border color for better visibility */
-  border-radius: 6px; /* Adjusted border-radius for a modern look */
+  margin-bottom: 15px; 
+  padding: 12px; 
+  border: 1px solid #555; 
+  border-radius: 6px; 
 }
 
 .addProductBtn {
-  margin-top: 20px; /* Adjusted margin for better spacing */
-  background-color: #f80000; /* Streetwear red color */
+  margin-top: 20px; 
+  background-color: #f80000; 
   color: white;
   padding: 15px;
   border: none;
-  border-radius: 10px; /* Increased border-radius for a modern look */
+  border-radius: 10px; 
   cursor: pointer;
-  transition: background-color 0.3s ease; /* Added transition for a smooth color change */
+  transition: background-color 0.3s ease; 
 }
 
 .addProductBtn:hover {
-  background-color: #e60000; /* Darkened color on hover for a subtle effect */
+  background-color: #e60000; 
 }
 
 img {
   max-width: 100%;
   height: auto;
-  margin-top: 20px; /* Adjusted margin for better spacing */
-  border-radius: 8px; /* Added border-radius for a modern look */
+  margin-top: 20px; 
+  border-radius: 8px; 
   /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); Added subtle box-shadow */
 }

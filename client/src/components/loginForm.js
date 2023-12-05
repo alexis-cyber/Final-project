@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "./sign-log.css";
 import Footer from "./footer"
 
@@ -37,6 +37,8 @@ function Login() {
                 <label>Password</label><br/>
                 <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}/><br/>
                 <input type="submit" value="Log in"/>
+                <Link to="/register" className="logg" ><p>Not Signed Up?</p></Link>
+            
             </form>
             
         </div>

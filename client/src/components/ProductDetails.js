@@ -54,7 +54,7 @@ const ProductDetails = () => {
     <div className="productDetailsContainer">
       <div className="productDetails">
         <p>{product.name}</p>
-        <p>{product.cost}</p>
+        <p>{product.cost}$</p>
         <img src={product.image} alt={product.name} />
         <p>{product.description}</p>
       </div>

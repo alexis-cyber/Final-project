@@ -79,7 +79,7 @@ const ProductList = () => {
             <Link to={`/product/${product._id}`}>
             <img src={product.image} alt={product.name} />
               <p>{product.name}</p>
-              <p>{product.cost}</p>
+              <p>{product.cost}$</p>
             </Link>
             
             {token && decoded.email === ADMIN && (

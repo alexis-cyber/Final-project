@@ -1,28 +1,28 @@
 .categoryDiv {
   background-color: #ffffff;
   text-align: center;
-  padding: 20px; /* Added padding for better spacing */
+  padding: 20px; 
 }
 
 .carousel-container {
-  margin-bottom: 80px; /* Reduced margin for a more compact look */
+  margin-bottom: 80px; 
 }
 
 .categoriesContainerItem {
   margin: 20px;
-  padding: 20px; /* Adjusted padding for a more balanced layout */
-  border-radius: 8px; /* Added border radius for a modern look */
+  padding: 20px; 
+  border-radius: 8px; 
   text-align: center;
   transition: transform 0.3s ease;
   display: inline-block;
-  width: calc(48% - 40px); /* Slightly increased width for better spacing */
+  width: calc(48% - 40px); 
   margin: 1%;
-  overflow: hidden; /* Ensures the border-radius works properly */
+  overflow: hidden; 
 }
 
 .categoriesContainerItem:hover {
   transform: scale(1.05);
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Added box-shadow on hover for elevation */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
 
 .categoriesContainerItem img {
@@ -34,14 +34,14 @@
 .categoryText {
   font-size: 18px;
   font-weight: bold;
-  color: #000000; /* Changed text color to white for better contrast */
+  color: #000000; 
   margin-top: 10px;
 }
 
 .categoryDiv h1 {
   font-size: 2.5em;
   font-family: "Roboto", sans-serif;
-  color: #fff; /* Changed text color to white for better contrast */
+  color: #fff; 
   text-align: center;
   margin-bottom: 20px;
 }
@@ -49,11 +49,11 @@
 .upFooter {
   display: flex;
   justify-content: center;
-  background-color: #333; /* Changed background color to a darker shade */
+  background-color: #333;
   padding: 40px;
   text-align: center;
   border-radius: 8px;
-  margin-top: 80px; /* Adjusted margin for better spacing */
+  margin-top: 80px;
 }
 
 .upFooter div {
@@ -63,13 +63,13 @@
 }
 
 .upFooter h1 {
-  color: #fff; /* Changed text color to white for better contrast */
+  color: #fff; 
   font-size: 20px;
   margin-bottom: 8px;
 }
 
 .upFooter p {
-  color: #ccc; /* Adjusted text color for better visibility */
+  color: #ccc; 
   font-size: 16px;
   margin-bottom: 8px;
 }
